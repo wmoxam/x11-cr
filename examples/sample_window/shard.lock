@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  x11:
+    github: wmoxam/x11-cr
+    commit: 47d0a9a1e0a815b83e8b3aaaa3aedccd953cbc7e
+
