@@ -1420,8 +1420,8 @@ module X11
       PseudoPassiveServerGrab = 3
       PseudoActiveServerGrab = 4
     end
-    $AppPeekEvent_SkipTimer : Boolean
-    $Strings : LibC::Char*
-    $CXtToolkitError : String
+    $app_peek_event_skip_timer = AppPeekEvent_SkipTimer : Boolean
+    $strings = Strings : LibC::Char*
+    $c_xt_toolkit_error = CXtToolkitError : String
   end
  end
