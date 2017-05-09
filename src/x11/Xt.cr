@@ -991,12 +991,12 @@ module X11
     fun display_string_conversion_warning = XtDisplayStringConversionWarning(x0 : Display, x1 : LibC::Char*, x2 : LibC::Char*)
     fun app_add_converter = XtAppAddConverter(x0 : AppContext, x1 : LibC::Char*, x2 : LibC::Char*, x3 : Converter, x4 : ConvertArgList, x5 : Cardinal)
     alias Converter = (XrmValue*, Cardinal*, XrmValue*, XrmValue* -> Void)
-    struct Unknown
+    struct ConvertArgRec
       address_mode : AddressMode
       address_id : Pointer
       size : Cardinal
     end
-    alias ConvertArgList = Unknown*
+    alias ConvertArgList = ConvertArgRec*
     enum AddressMode
       Address = 0
       BaseOffset = 1
@@ -1283,11 +1283,11 @@ module X11
     fun callback_release_cache_ref_list = XtCallbackReleaseCacheRefList(x0 : Widget, x1 : Pointer, x2 : Pointer)
     fun set_wm_colormap_windows = XtSetWMColormapWindows(x0 : Widget, x1 : Widget*, x2 : Cardinal)
     fun find_file = XtFindFile(x0 : LibC::Char*, x1 : Substitution, x2 : Cardinal, x3 : FilePredicate) : String
-    struct Unknown
+    struct SubstitutionRec
       match : LibC::Char
       substitution : String
     end
-    alias Substitution = Unknown*
+    alias Substitution = SubstitutionRec*
     alias FilePredicate = (String -> Boolean)
     fun resolve_pathname = XtResolvePathname(x0 : Display, x1 : LibC::Char*, x2 : LibC::Char*, x3 : LibC::Char*, x4 : LibC::Char*, x5 : Substitution, x6 : Cardinal, x7 : FilePredicate) : String
     fun disown_selection = XtDisownSelection(x0 : Widget, x1 : Atom, x2 : Time)
