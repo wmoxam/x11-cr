@@ -156,8 +156,8 @@ module X11
     alias RealizeProc = (
       Widget, 
       ValueMask*, 
-      XSetWindowAttributes* -> Void
-    )
+      XSetWindowAttributes* -> Void )
+
     alias Xid = LibC::ULong
     alias Pixmap = Xid
     alias Colormap = Xid
@@ -644,8 +644,7 @@ module X11
       Widget, 
       Widget, 
       ArgList, 
-      Cardinal* -> Boolean
-    )
+      Cardinal* -> Boolean )
     alias ArgsFunc = (Widget, ArgList, Cardinal* -> Boolean)
 
     struct WidgetGeometry
@@ -663,8 +662,7 @@ module X11
       Widget, 
       Widget, 
       WidgetGeometry*, 
-      WidgetGeometry* -> Void
-    )
+      WidgetGeometry* -> Void )
     alias GeometryMask = LibC::UInt
     alias Position = LibC::Short
     alias Dimension = LibC::UShort
@@ -681,8 +679,7 @@ module X11
     alias GeometryHandler = (
       Widget, 
       WidgetGeometry*, 
-      WidgetGeometry* -> GeometryResult
-    )
+      WidgetGeometry* -> GeometryResult )
     alias StringProc = (Widget, String -> Void)
     alias XrmName = XrmQuark
 
@@ -889,8 +886,7 @@ module X11
       Cardinal*, 
       WidgetList, 
       Cardinal*, 
-      Pointer -> Void
-    )
+      Pointer -> Void )
 
     Address = 0
     BaseOffset = 1
@@ -941,8 +937,7 @@ module X11
       Cardinal*, 
       XrmValue*, 
       XrmValue*, 
-      Pointer* -> Boolean
-    )
+      Pointer* -> Boolean )
 
     alias XrmValuePtr = XrmValue*
     alias Opaque = Pointer
@@ -1129,8 +1124,7 @@ module X11
       String, 
       XEvent*, 
       String*, 
-      Cardinal* -> Void
-    )
+      Cardinal* -> Void )
 
     struct X_BlockHookRec
       next : X_BlockHookRec*
@@ -1150,8 +1144,7 @@ module X11
       AppContext, 
       Boolean*, 
       Boolean*, 
-      LibC::Int* -> Void
-    )
+      LibC::Int* -> Void )
 
     alias ThreadAppRestoreLockProc = (AppContext, LibC::Int, Boolean* -> Void)
 
@@ -1177,8 +1170,7 @@ module X11
       Atom*, 
       Pointer*, 
       LibC::ULong*, 
-      LibC::Int* -> Boolean
-    )
+      LibC::Int* -> Boolean )
 
     alias LoseSelectionProc = (Widget, Atom* -> Void)
     alias SelectionDoneProc = (Widget, Atom*, Atom* -> Void)
@@ -1206,8 +1198,7 @@ module X11
       LibC::Int*, 
       LibC::ULong*, 
       Pointer, 
-      RequestId* -> Boolean
-    )
+      RequestId* -> Boolean )
 
     alias LoseSelectionIncrProc = (Widget, Atom*, Pointer -> Void)
 
@@ -1216,16 +1207,14 @@ module X11
       Atom*, 
       Atom*, 
       RequestId*, 
-      Pointer -> Void
-    )
+      Pointer -> Void )
 
     alias CancelConvertSelectionProc = (
       Widget, 
       Atom*, 
       Atom*, 
       RequestId*, 
-      Pointer -> Void
-    )
+      Pointer -> Void )
 
     fun make_resize_request = XtMakeResizeRequest(
       x0 : Widget, 
@@ -1322,8 +1311,7 @@ module X11
       XrmValue*, 
       Pointer, 
       XrmValue*, 
-      Cardinal* -> Void
-    )
+      Cardinal* -> Void )
 
     fun app_set_type_converter = XtAppSetTypeConverter(
       x0 : AppContext, 
@@ -1568,8 +1556,7 @@ module X11
       LibC::Int*, 
       Pointer*, 
       LibC::Int, 
-      Pointer -> Void
-    )
+      Pointer -> Void )
 
     fun add_grab = XtAddGrab(x0 : Widget, x1 : Boolean, x2 : Boolean)
     fun remove_grab = XtRemoveGrab(x0 : Widget)
@@ -1656,16 +1643,33 @@ module X11
     fun destroy_widget = XtDestroyWidget(x0 : Widget)
     fun set_sensitive = XtSetSensitive(x0 : Widget, x1 : Boolean)
 
-    fun set_mapped_when_managed = XtSetMappedWhenManaged(x0 : Widget, x1 : Boolean)
+    fun set_mapped_when_managed = XtSetMappedWhenManaged(
+      x0 : Widget, 
+      x1 : Boolean
+    )
 
     fun name_to_widget = XtNameToWidget(x0 : Widget, x1 : LibC::Char*) : Widget
     fun window_to_widget = XtWindowToWidget(x0 : Display, x1 : Window) : Widget
 
-    fun get_class_extension = XtGetClassExtension(x0 : WidgetClass, x1 : Cardinal, x2 : XrmQuark, x3 : LibC::Long, x4 : Cardinal) : Pointer
+    fun get_class_extension = XtGetClassExtension(
+      x0 : WidgetClass, 
+      x1 : Cardinal, 
+      x2 : XrmQuark, 
+      x3 : LibC::Long, 
+      x4 : Cardinal
+    ) : Pointer
 
-    fun merge_arg_lists = XtMergeArgLists(x0 : ArgList, x1 : Cardinal, x2 : ArgList, x3 : Cardinal) : ArgList
+    fun merge_arg_lists = XtMergeArgLists(
+      x0 : ArgList, 
+      x1 : Cardinal, 
+      x2 : ArgList, 
+      x3 : Cardinal
+    ) : ArgList
 
-    fun va_create_args_list = XtVaCreateArgsList(x0 : Pointer, ...) : VarArgsList
+    fun va_create_args_list = XtVaCreateArgsList(
+      x0 : Pointer, 
+      ...
+    ) : VarArgsList
 
     alias VarArgsList = Pointer
     fun display = XtDisplay(x0 : Widget) : Display
@@ -2322,8 +2326,7 @@ module X11
       Atom*, 
       Pointer, 
       LibC::ULong*, 
-      LibC::Int* -> Void
-    )
+      LibC::Int* -> Void )
 
     fun get_selection_values = XtGetSelectionValues(
       x0 : Widget, 
